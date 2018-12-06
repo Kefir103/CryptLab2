@@ -13,7 +13,7 @@ public class Main {
         subB.setP(subA.getP());
         Main.logToFile(subA.getLog());
 
-        System.out.print("Введите A: ");
+        System.out.print("Введите A ((1 < A < P-1) && (A^q mod P != 1)): ");
         subA.setA(in.nextDouble());
         subB.setA(subA.getA());
         Main.logToFile(subA.getLog());
