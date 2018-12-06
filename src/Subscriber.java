@@ -1,7 +1,7 @@
 public class Subscriber {
     String name;
 
-    int P, K;
+    int P, K, q;
     private double X;
     double A, Y;
     double recievedY;
@@ -15,25 +15,35 @@ public class Subscriber {
         return name;
     }
 
-    public void setP(int p){
+    public void setP(int p) throws Exception{
         for (int i = 2; i <= p/2; i++){
             int temp = p % i;
             if (temp == 0){
                 this.log = ("P - не простое число!");
-                return;
+                throw new Exception("P - не простое число!");
             }
         }
         this.P = p;
         this.log = "P = " + p;
+
+        this.q = (p - 1) / 2;
+        for (int i = 2; i <= q/2; i++){
+            int temp = q % i;
+            if (temp == 0){
+                this.log = ("q - не простое число (q = " + q + ")");
+                throw new Exception("q - не простое число! (q = " + q + ")");
+            }
+        }
+
     }
 
-    public void setA(double a){
+    public void setA(double a) throws Exception{
         int p = this.P;
-        if ((a > 1) && (a < p--)){
+        if (((a > 1) && (a < p--)) && (Math.pow(a, (double) q) % P != 1)){
             this.A = a;
         } else {
-            this.log = ("1 < A < P-1 не выполняется!");
-            return;
+            this.log = ("Условия выбора А не выполняются! ((1 < A < P-1) && (A^q mod P != 1)");
+            throw new Exception("Условия выбора А не выполняются! ((1 < A < P-1) && (A^q mod P != 1)");
         }
         this.log = "A = " + this.A;
     }

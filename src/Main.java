@@ -5,10 +5,10 @@ import java.util.Scanner;
 public class Main {
     static StringBuilder logs = new StringBuilder();
 
-    void diffie(Subscriber subA, Subscriber subB){
+    void diffie(Subscriber subA, Subscriber subB) throws Exception{
         Scanner in = new Scanner(System.in);
 
-        System.out.print("Введите P: ");
+        System.out.print("Введите P, такое что P = 2q+1, где q - простое число: ");
         subA.setP(in.nextInt());
         subB.setP(subA.getP());
         Main.logToFile(subA.getLog());
@@ -52,7 +52,7 @@ public class Main {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Main main = new Main();
         Subscriber subscriberA = new Subscriber("Абонент A");
         Subscriber subscriberB = new Subscriber("Абонент B");
