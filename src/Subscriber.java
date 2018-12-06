@@ -1,4 +1,4 @@
-public class SubscriberA {
+public class Subscriber {
     String name;
 
     int P, K;
@@ -7,7 +7,7 @@ public class SubscriberA {
     double recievedY;
     String log;
 
-    SubscriberA(String name){
+    Subscriber(String name){
         this.name = name;
     }
 
@@ -41,6 +41,7 @@ public class SubscriberA {
     public void setX(double x){
         this.X = x;
         this.log = "X " + this.getName() + " = " + this.X;
+        Main.logToFile(getLog());
     }
 
     public double getY() {
@@ -70,11 +71,13 @@ public class SubscriberA {
     public void computeY(double a, double x, int p){
         Y = (int) Math.pow(a, x) % p;
         logY();
+        Main.logToFile(getLog());
     }
 
     public void computeKey(double y, double x, int p){
         K = (int) Math.pow(y, x) % p;
         logKey();
+        Main.logToFile(getLog());
     }
 
     public int getK(){
@@ -84,6 +87,7 @@ public class SubscriberA {
     public void recieveY(double y){
         this.recievedY = y;
         this.log = this.getName() +" получил Y = " + this.recievedY;
+        Main.logToFile(getLog());
     }
 
     public double getRecievedY() {
