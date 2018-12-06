@@ -59,11 +59,13 @@ public class Subscriber {
     }
 
     public void logY(){
-        this.log = "Y " + this.getName() + " = "  + this.getA() + "^" + this.getX() + " mod " + this.getP() + " = " + this.getY();
+        this.log = "Y " + this.getName() + " = "  +
+                this.getA() + "^" + this.getX() + " mod " + this.getP() + " = " + this.getY();
     }
 
     public void logKey(){
-        this.log = "K " + this.getName() + " = "  + this.getRecievedY() + "^" + this.getX() + " mod " + this.getP() + " = " + this.getK();
+        this.log = "K " + this.getName() + " = "  +
+                this.getRecievedY() + "^" + this.getX() + " mod " + this.getP() + " = " + this.getK();
     }
 
     public int getP() {
